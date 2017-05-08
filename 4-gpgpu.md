@@ -24,6 +24,13 @@ Bien que des extensions ont été ajoutés à l'architecture x86 au fil du temps
 Les processeurs graphiques ont ainsi été conçus dans cette optique.
 À la place des quelques cœurs complexes que l'on retrouve dans un CPU se trouvent quelques centaines d'unités d'exécutions dans un GPU.
 
+
 ## Détourner l'utilisation des GPUs
 
-TODO
+Au début des années 2000, la plupart des cartes graphiques grand publiques se programmaient via différentes APIs[^api] comme OpenGL (du groupe Khronos) ou DirectX (de Microsoft).
+À cette époque, les GPUs pouvaient essentiellement travailler sur des matrices de couleurs (donc des images bitmap).
+Mais les chercheurs ont rapidement observés que ces données d'entrée –initialement des couleurs– pouvaient représenter virtuellement n'importe quelle donnée numérique[@Sanders:2010:CEI:1891996].
+Les chercheurs ont alors essayé de détourner ces APIs pour utiliser la puissance du circuit graphique pour effectuer des calculs sur des données autre que des resources graphiques.
+
+[^api]: *Application Programming Interface*
+

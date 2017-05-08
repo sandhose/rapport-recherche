@@ -12,4 +12,5 @@ toc: true
 lang: fr
 urlcolor: cyan
 bibliography: sources.bib
+biblio-style: unsrt
 ---

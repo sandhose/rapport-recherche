@@ -1,4 +1,8 @@
-FILES = meta.yml 1-intro.md 2-cpus.md 3-fpga-asics.md 4-gpgpu.md 5-bibliographie.md
+FILES = meta.yml 1-intro.md 2-cpus.md 3-fpga-asics.md 4-gpgpu.md
 
-rapport.pdf: $(FILES)
-	pandoc --latex-engine=xelatex --filter pandoc-citeproc -N -o $@ $^
+rapport.pdf: rapport.tex
+	xelatex rapport
+	bibtex rapport
+	xelatex rapport
+rapport.tex: $(FILES) sources.bib
+	pandoc --latex-engine=xelatex --bibliography=sources.bib -s -S --natbib -N -o $@ $(FILES)

@@ -17,5 +17,3 @@ Les diapositives pour les débriefing étaient stockées au format Markdown, et 
 
 Le rapport final est également rédigé en Markdown avec Pandoc, et la bibliographie est compilée dans un fichier BibTex.
 Ces fichiers la ont été sauvegardés dans un dépôt partagé Git pour faciliter la collaboration.
-
-Test [@smith2008application-specific]
