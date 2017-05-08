@@ -16,4 +16,4 @@ Les diapositives pour les débriefing étaient stockées au format Markdown, et 
 [^pad]: Bloc-note partagé et synchronisé en temps réel. Nous avons utilisé une instance d'[EtherPad](http://etherpad.org/).
 
 Le rapport final est également rédigé en Markdown avec Pandoc, et la bibliographie est compilée dans un fichier BibTex.
-Ces fichiers la ont été sauvegardés dans un dépôt partagé Git pour faciliter la collaboration.
+Ces fichiers la ont été sauvegardés dans un dépôt partagé Git (hébergé sur GitHub) pour faciliter la collaboration.

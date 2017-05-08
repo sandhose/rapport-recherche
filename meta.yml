@@ -13,4 +13,6 @@ lang: fr
 urlcolor: cyan
 bibliography: sources.bib
 biblio-style: unsrt
+header-includes:
+  - \usepackage[nottoc]{tocbibind}
 ---

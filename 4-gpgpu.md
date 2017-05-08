@@ -146,7 +146,7 @@ Cet outil concrètement va:
 
 Il est également possible de demander à `nvcc` de seulement générer le code *PTX*, et ce code sera compilé à l'exécution par `cudart`.
 
-*Parallel Thread Execution* (PTX) est à la fois le nom de la machine virtuelle dans lequel est exécuté l'application côté GPU, et le jeu d'instruction de CUDA.
+*Parallel Thread Execution* (PTX) est à la fois le nom de la *machine virtuelle* dans lequel est exécuté l'application côté GPU, et le jeu d'instruction de CUDA.
 
 Les programmes PTX ressemblent à des programmes en assembleur, mais avec un jeu d'instruction spécifique à CUDA.
 Ce jeu d'instruction est décrit dans un document fournit par Nvidia\cite{ptx-cuda}.
@@ -158,3 +158,30 @@ Ce jeu d'instruction est décrit dans un document fournit par Nvidia\cite{ptx-cu
 [^cudart]: *CUDA Runtime*
 
 ## Architecture matérielle d'un GPU
+
+![Architecture Kepler\cite{nvidia-kepler-whitepaper}](./img/kepler.pdf)
+
+Outre un cache L2 et quelques contrôleurs partagés, un GPU moderne chez Nvidia (ici, l'architecture Kepler, introduite en 2012 par Nvidia) est composé de plusieurs “Streaming Multiprocessor” (SMX).
+Ces *SMX* correspondent au niveau d'abstraction des *CTA* mentionné plus haut.
+
+Chaque *SMX* comporte une flopée d'unités d'exécutions simple et double précision.
+
+![Contenu d'un SMX sous Kepler\cite{nvidia-kepler-whitepaper}](./img/smx.pdf)
+
+À chaque cycle, les instructions de même type en attente dans le cache d'instruction sont groupées ensemble dans des *“warps”* par les *warps scheduler* pour être ensuite dispatchés aux différentes unités d'exécution.
+
+Ce fonctionnement est très différent de l'habituelle pipeline d'une architecture de processeur traditionnel.
+La puissance de ces processeur vient de leur capacité à exécuter une même instruction sur des vecteurs de données.
+Ainsi, l'addition de deux vecteurs avec une vingtaine d'éléments se fera probablement en 2 ou 3 instructions, qui prendront peut-être une dizaine de pulsations d'horloge.
+À l'inverse, un processeur traditionnel, même avec un jeu d'instruction avec SIMD devra probablement faire une dizaine d'opérations pour effectuer ce calcul.
+
+Ainsi, même si individuellement, l'exécution d'une instruction sera probablement plus rapide sur un processeur traditionnel que sur GPU, les GPUs se montrent bien plus performant lorsqu'il s'agit d'effectuer des opérations parallèlement.
+
+## Applications
+
+Les applications du calcul sur GPU sont nombreuses.
+Outre les applications gourmandes graphiquement, cette capacité à effectuer des calculs parallèles s'applique bien à des domaines tels que la simulation, manipulations de BigData, ou encore du traitement de signal.
+
+Un des domaines qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
+Le domaine de l'intelligence artificielle, *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
+On peut aujourd'hui faire fonctionner des algorithme de deep learning avec du matériel *grand publique* à quelques centaines d'euros.
