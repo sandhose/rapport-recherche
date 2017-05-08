@@ -1,6 +1,8 @@
 ---
 documentclass: article
-classoption: titlepage
+classoption:
+ - a4paper
+ - titlepage
 title: Les accélérateurs matériels
 author:
   - Antoine Greget
