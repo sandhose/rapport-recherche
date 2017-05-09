@@ -1,13 +1,12 @@
-# FPGA[^fpga], ASIC[^asic] et tout le bordel
+# FPGA[^fpga], ASIC[^asic] et HDL[^hdl]
 
 [^fpga]: *Field Programmable Gate Array*
 [^asic]: *Application Specific Integrated Circuit*
+[^hdl]: *Hardware Description Language*
 
 Les circuits intégrés ont fait leur apparition dans les années 60, leur création ayant été rendue possible par les avancées dans le développement des matériaux semi-conducteurs et de leur utilisation en tant que tubes électroniques.
 
-Au fur et à mesure des avancées technologiques et de l'évolution des besoins en matière de *FIXME il manque un mot*, il a fallu que les composants des différents systèmes deviennent le plus performant possible, afin d'accomplir les tâches auxquelles ils sont dédiés de manière rapide et optimisée. De l'idée de créer des composant dédiés à des types d'applications spécifiques sont apparus, au cours des années 80, les ASICs.
-
-*FIXME* « apparus de l’idée » est une tournure bizarre, on dit plutôt « nés de l’idée ».
+Au fur et à mesure des avancées technologiques et de l'évolution des besoins en matière de puissance et d'énergie, il a fallu que les composants des différents systèmes deviennent le plus performant possible, afin d'accomplir les tâches auxquelles ils sont dédiés de manière rapide et optimisée. De l'idée de créer des composant dédiés à des types d'applications spécifiques sont nés, au cours des années 80, les ASICs.
 
 ## ASICs
 
@@ -15,7 +14,7 @@ Les ASICs[^asic] (soit circuits intégrés pour applications) sont des circuits 
 
 Cette forme de circuit intégré a pour but de réduire grandement les coûts de production et d'augmenter la fiabilité et la performance de celui-ci pour le produit que l'on désire créer. Aussi, ce type de circuit est adapté aux situations où l'on désire produire un grand nombre d'instances de celui-ci.
 
-La fabrication d'un ASIC commence à la conception de son modèle. /*TODO*/
+La fabrication d'un ASIC commence à la conception de son modèle. Après que l'on ai décidé de l'usage que la puce aura, sa structure et son comportement sont décrits grâce à un langage de description de matériel. Le modèle est ensuite envoyé en fonderie, où il peut passer plusieurs mois afin que son comportement soit gravé.
 
 Les inconvénients qui apparaissent sont leur fort coût d'élaboration, ainsi que le temps que celle-ci dure, nécessitant de devoir produire une très grande quantité de circuits afin que leur utilisation puisse être rentable. De plus, étant spécifiques à une application, les ASICs ne sont aucunement modifiables : on ne peut pas reprogrammer un ASIC après que le design de celui-ci a été implémenté.
 
@@ -35,7 +34,7 @@ Au vu de leur adaptabilité, leur coût de conception réduit et leur vitesse de
 
 ## HDL
 
-Les circuits intégrés cités précédemment cités sont programmés à l'aide d'un HDL, à savoir un langage de description de matériel. Ceux-ci sont des langages informatiques décrivant le comportement d'un circuit électronique, ou bien les portes logiques utilisées par celui-ci. Un langage de description matérielle permet donc, en outre :
+Les circuits intégrés cités précédemment cités sont programmés à l'aide d'un HDL[^hdl], à savoir un langage de description de matériel. Ceux-ci sont des langages informatiques décrivant le comportement d'un circuit électronique, ou bien les portes logiques utilisées par celui-ci. Un langage de description matérielle permet donc, en outre :
 
   - de décrire le fonctionnement d'un circuit
   - de décrire la structure d'un circuit
@@ -50,24 +49,25 @@ library ieee
   use ieee.std_logic_1164.all;
   use ieee.std_logic_unsigned.all;
 
--- Description d'une entité
+-- Description d'une entité (entrées/sorties)
 entity exemple is
   port(a , b          :   in std_logic_vector(3 downto 0);
       op, clk, reset  :   in std_logic;
       c               :   out std_logic_vector(3 downto 0));
 end exemple;
 
--- Architecture du circuit
+-- Architecture (ensemble de processus)
+
+-- processus internes
 architecture test of exemple is
   signal moinsb, opb, aopb : std_logic_vector(3 downto 0);
 begin
 moinsb <= not b + "0001"
-
 opb <= b when op='0'
          else moins;
-
 aopb <= a + opb;
 
+-- processus externes
 process (reset, clk)
   begin
   if reset='0'
@@ -80,3 +80,5 @@ process (reset, clk)
 
 end test;
 ```
+
+La transformation d'un langage de description en un schéma en porte logique, qui permet la description du comportement et de la structure d'un circuit, est possible grâce à la synthèse logique.
