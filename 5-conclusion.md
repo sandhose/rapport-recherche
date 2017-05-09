@@ -6,10 +6,10 @@ L'émergence d'API comme CUDA et OpenCL rend l'exploitation de ces accélérateu
 Peut-être qu'à l'avenir, la recherche nous permettra de concevoir des *ASIC* en écrivant des noyaux OpenCL ?
 
 Nous avons également constaté un engouement relativement récent aux techniques de *deep learning*.
-Ces techniques sont – grâce aux *GPGPU*s – devenues également relativement accessibles.
-De nombreuses entreprises tels que Nvidia, Intel ou encore Google investissent dans ce domaine, et commencent à proposer des réseaux de neurones matériels, et d'autres accélérateurs matériels spécialisés dans le *deep learning*.
+Ces techniques sont – grâce aux *GPGPU* – devenues également relativement accessibles.
+De nombreuses entreprises tels que Nvidia, Intel ou encore Google investissent dans ce domaine et commencent à proposer des réseaux de neurones matériels et d'autres accélérateurs matériels spécialisés dans le *deep learning*.
 
-Ce projet de recherche documentaire nous a permis également de pratiquer la programmation sur GPU, technique que nous n'avions encore jamais expérimentée avant ce projet.
-Les connaissances acquises vis à vis des ASICs et des HDLs a contribué à démystifier le monde de la conception de circuits intégrés complexes – domaine jusqu'alors inconnu pour nous.
+Ce projet de recherche documentaire nous a permis également de pratiquer la programmation sur GPU, technique que nous n'avions encore jamais expérimentée auparavant.
+Les connaissances acquises vis à vis des ASIC et des HDL a contribué à démystifier le monde de la conception de circuits intégrés complexes – domaine jusqu'alors inconnu pour nous.
 
 \newpage
