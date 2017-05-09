@@ -190,8 +190,8 @@ AMD, Nvidia, Intel ont (parmi d'autres dizaines de constructeurs\cite{opencl-con
 OpenCL tourne aujourd'hui sur plusieurs architectures CPU (tant que le jeu d'instruction a les extensions permettant les opérations `SIMD`), `GPU`s, `FPGA`s et différents processeurs de signaux numériques\cite{wikipedia-opencl}.
 
 L'API OpenCL ressemble conceptuellement à CUDA, avec une terminologie un peu différente.
-On ne parle pas de « *thread* » ni de « bloc » mais de « travail » (*work-item*) et de « group de travaux » (*work-group*)\cite{amd-porting-opencl}.
-Mais le principe reste le même: OpenCL propose un langage similaire au C, permettant d'écrire des noyaux à exécuter sur le « *device* » OpenCL.
+On ne parle pas de « *thread* » ni de « bloc » mais de « travail » (*work-item*) et de « groupe de travaux » (*work-group*)\cite{amd-porting-opencl}.
+Le principe reste cependant le même: OpenCL propose un langage similaire au C, permettant d'écrire des noyaux à exécuter sur le « *device* » OpenCL.
 
 
 ## Applications

@@ -6,7 +6,7 @@
 
 Les circuits intégrés ont fait leur apparition dans les années 60, leur création ayant été rendue possible par les avancées dans le développement des matériaux semi-conducteurs et de leur utilisation en tant que tubes électroniques.
 
-Au fur et à mesure des avancées technologiques et de l'évolution des besoins en matière de puissance et d'énergie, il a fallu que les composants des différents systèmes deviennent le plus performant possible, afin d'accomplir les tâches auxquelles ils sont dédiés de manière rapide et optimisée. De l'idée de créer des composant dédiés à des types d'applications spécifiques sont nés, au cours des années 80, les ASICs.
+Au fur et à mesure des avancées technologiques et de l'évolution des besoins en matière de puissance et d'énergie, il a fallu que les composants des différents systèmes deviennent le plus performant possible, afin d'accomplir les tâches auxquelles ils sont dédiés de manière rapide et optimisée. De l'idée de créer des composant dédiés à des types d'applications spécifiques sont nés, au cours des années 80, les ASIC.
 
 ## ASIC[^asic]
 
@@ -25,11 +25,11 @@ C'est pour répondre à des besoins auxquels les ASIC ne sont pas adaptés que l
 
 Un FPGA (soit matrice de portes logiques programmable) est un type de circuit intégré apparu au milieu des années 80, et dont la particularité est qu'il peut être utilisé pour plusieurs types d'application.
 
-A l'instar des ASICs, la programmation des FPGAs est faite avec un HDL, qui permet de décrire le comportement du circuit. Cependant, les FPGAs sont conçus de manière à pouvoir être reprogrammés. On peut en effet "flasher" ceux-ci afin d'en modifier le comportement, et ainsi ceux-ci ne sont pas limités à une utilisation.
+À l'instar des ASIC, la programmation des FPGA est faite avec un HDL, qui permet de décrire le comportement du circuit. Cependant, les FPGA sont conçus de manière à pouvoir être reprogrammés. On peut en effet "flasher" ceux-ci afin d'en modifier le comportement, et ainsi ceux-ci ne sont pas limités à une utilisation.
 
 La modification possible de l'application pour un FPGA en fatt de solides concurrents aux ASIC, surtout dans les domaines où ceux-là n'excellent pas. En particulier, le coût de design d'un FPGA est moindre par rapport à celui d'un ASIC et l'on peut les utiliser pour plusieurs types d'applications. Cela en fait une bonne option pour, par exemple, l'expérimentation et les prototypes, ou bien la fabrication de produits lorsqu'il ne s'agit pas d'en fabriquer un grand nombre et qu'il faut y avoir accès rapidement.
 
-Au vu de leur adaptabilité, leur coût de conception réduit et leur vitesse de fabrication et disponibilité, on peut se demander pourquoi les FPGAs ne sont pas utilisés pour tous types d'applications. Aujourd'hui, la performance des FPGA reste limitée par rapport à celle des ASIC. C'est pourquoi ces derniers restent le choix optimal pour les projets conséquents.
+Au vu de leur adaptabilité, leur coût de conception réduit et leur vitesse de fabrication et disponibilité, on peut se demander pourquoi les FPGA ne sont pas utilisés pour tous types d'applications. Aujourd'hui, la performance des FPGA reste limitée par rapport à celle des ASIC. C'est pourquoi ces derniers restent le choix optimal pour les projets conséquents.
 
 
 ## HDL[^hdl]
