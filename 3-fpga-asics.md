@@ -10,7 +10,7 @@ Au fur et à mesure des avancées technologiques et de l'évolution des besoins 
 
 ## ASIC[^asic]
 
-Les ASIC (soit circuits intégrés pour applications) sont des circuits conçus spécifiquement pour un type d'application (c'est-à-dire d'utilisation). Ainsi, pour un type de produit, un design de circuit va être élaboré de manière à ce que celui-ci soit le plus performant possible vis-à-vis de son utilisation au sein du produit. Une fois ce design produit, on pourra créer une certaine quantité de circuits intégrés spécialisés pour l'utilisation que l'on veut en faire.
+Les ASIC\cite{Smith:1998:AIC:298606} (soit circuits intégrés pour applications) sont des circuits conçus spécifiquement pour un type d'application (c'est-à-dire d'utilisation). Ainsi, pour un type de produit, un design de circuit va être élaboré de manière à ce que celui-ci soit le plus performant possible vis-à-vis de son utilisation au sein du produit. Une fois ce design produit, on pourra créer une certaine quantité de circuits intégrés spécialisés pour l'utilisation que l'on veut en faire.
 
 Cette forme de circuit intégré a pour but de réduire grandement les coûts de production et d'augmenter la fiabilité et la performance de celui-ci pour le produit que l'on désire créer. Aussi, ce type de circuit est adapté aux situations où l'on désire produire un grand nombre d'instances de celui-ci.
 
@@ -40,7 +40,7 @@ Les circuits intégrés cités précédemment cités sont programmés à l'aide 
   - de décrire la structure d'un circuit
   - de vérifier la fonctionnalité d'un circuit, par simulation
 
-Les principaux langages de description sont SystemC, Verilog et VHDL. Ce dernier, créé en 1981 par le Département de la Défense des États-Unis, peut décrire le comportement d'une puce, qui sera interprété par des outils de synthèse logique. Un exemple de programme en VHDL ressemblerait à ceci :
+Les principaux langages de description sont SystemC, Verilog et VHDL. Ce dernier, créé en 1981 par le Département de la Défense des États-Unis, peut décrire le comportement d'une puce, qui sera interprété par des outils de synthèse logique. Un exemple de programme en VHDL\cite{vhdl-edu} ressemblerait à ceci :
 
 ```vhdl
 
@@ -80,5 +80,7 @@ process (reset, clk)
 
 end test;
 ```
+
+En VHDL, les entrées/sorties sont les *ports* de l'entité. Chaque composant interne est un *processus* de l'architecture, et ceux-ci s'exécutent en parallèle.
 
 La transformation d'un langage de description en un schéma en porte logique, qui permet la description du comportement et de la structure d'un circuit, est possible grâce à la synthèse logique.
