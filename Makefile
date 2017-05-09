@@ -1,4 +1,4 @@
-FILES = meta.yml 1-intro.md 2-cpus.md 3-fpga-asics.md 4-gpgpu.md
+FILES = meta.yml 0-acknowledgments.md 1-intro.md 2-cpus.md 3-fpga-asics.md 4-gpgpu.md
 
 rapport.pdf: rapport.tex
 	xelatex rapport
