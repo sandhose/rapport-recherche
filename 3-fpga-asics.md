@@ -1,4 +1,4 @@
-# FPGA[^fpga], ASIC[^asic] et HDL[^hdl]
+# FPGA, ASIC et HDL
 
 [^fpga]: *Field Programmable Gate Array*
 [^asic]: *Application Specific Integrated Circuit*
@@ -8,9 +8,9 @@ Les circuits intégrés ont fait leur apparition dans les années 60, leur créa
 
 Au fur et à mesure des avancées technologiques et de l'évolution des besoins en matière de puissance et d'énergie, il a fallu que les composants des différents systèmes deviennent le plus performant possible, afin d'accomplir les tâches auxquelles ils sont dédiés de manière rapide et optimisée. De l'idée de créer des composant dédiés à des types d'applications spécifiques sont nés, au cours des années 80, les ASICs.
 
-## ASIC
+## ASIC[^asic]
 
-Les ASIC[^asic] (soit circuits intégrés pour applications) sont des circuits conçus spécifiquement pour un type d'application (c'est-à-dire d'utilisation). Ainsi, pour un type de produit, un design de circuit va être élaboré de manière à ce que celui-ci soit le plus performant possible vis-à-vis de son utilisation au sein du produit. Une fois ce design produit, on pourra créer une certaine quantité de circuits intégrés spécialisés pour l'utilisation que l'on veut en faire.
+Les ASIC (soit circuits intégrés pour applications) sont des circuits conçus spécifiquement pour un type d'application (c'est-à-dire d'utilisation). Ainsi, pour un type de produit, un design de circuit va être élaboré de manière à ce que celui-ci soit le plus performant possible vis-à-vis de son utilisation au sein du produit. Une fois ce design produit, on pourra créer une certaine quantité de circuits intégrés spécialisés pour l'utilisation que l'on veut en faire.
 
 Cette forme de circuit intégré a pour but de réduire grandement les coûts de production et d'augmenter la fiabilité et la performance de celui-ci pour le produit que l'on désire créer. Aussi, ce type de circuit est adapté aux situations où l'on désire produire un grand nombre d'instances de celui-ci.
 
@@ -21,9 +21,9 @@ Les inconvénients qui apparaissent sont leur fort coût d'élaboration, ainsi q
 
 C'est pour répondre à des besoins auxquels les ASIC ne sont pas adaptés que les FPGA sont apparus.
 
-## FPGA
+## FPGA[^fpga]
 
-Un FPGA[^fpga] (soit matrice de portes logiques programmable) est un type de circuit intégré apparu au milieu des années 80, et dont la particularité est qu'il peut être utilisé pour plusieurs types d'application.
+Un FPGA (soit matrice de portes logiques programmable) est un type de circuit intégré apparu au milieu des années 80, et dont la particularité est qu'il peut être utilisé pour plusieurs types d'application.
 
 A l'instar des ASICs, la programmation des FPGAs est faite avec un HDL, qui permet de décrire le comportement du circuit. Cependant, les FPGAs sont conçus de manière à pouvoir être reprogrammés. On peut en effet "flasher" ceux-ci afin d'en modifier le comportement, et ainsi ceux-ci ne sont pas limités à une utilisation.
 
@@ -32,9 +32,9 @@ La modification possible de l'application pour un FPGA en fatt de solides concur
 Au vu de leur adaptabilité, leur coût de conception réduit et leur vitesse de fabrication et disponibilité, on peut se demander pourquoi les FPGAs ne sont pas utilisés pour tous types d'applications. Aujourd'hui, la performance des FPGA reste limitée par rapport à celle des ASIC. C'est pourquoi ces derniers restent le choix optimal pour les projets conséquents.
 
 
-## HDL
+## HDL[^hdl]
 
-Les circuits intégrés cités précédemment cités sont programmés à l'aide d'un HDL[^hdl], à savoir un langage de description de matériel. Ceux-ci sont des langages informatiques décrivant le comportement d'un circuit électronique, ou bien les portes logiques utilisées par celui-ci. Un langage de description matérielle permet donc, en outre :
+Les circuits intégrés cités précédemment cités sont programmés à l'aide d'un HDL, à savoir un langage de description de matériel. Ceux-ci sont des langages informatiques décrivant le comportement d'un circuit électronique, ou bien les portes logiques utilisées par celui-ci. Un langage de description matérielle permet donc, en outre :
 
   - de décrire le fonctionnement d'un circuit
   - de décrire la structure d'un circuit
