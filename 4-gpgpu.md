@@ -4,51 +4,51 @@
 
 ## Les processeurs graphiques, ces accélérateurs matériels un peu particuliers
 
-Avec l'apparition d'expériences multimédia dans l'informatique, qu'il s'agisse simplement de décodage de flux vidéo numérique, ou de rendu en temps réel de jeux vidéos, on a constaté l'apparition de processeurs graphiques dédiés chez plusieurs constructeurs dans les années 80.
+Avec l'apparition d'expériences multimédia dans l'informatique, qu'il s'agisse simplement de décodage de flux vidéo numériques, ou de rendu en temps réel de jeux vidéo, on a constaté l'apparition de processeurs graphiques dédiés chez plusieurs constructeurs dans les années 80.
 
 Ces processeurs n'ont cessé d'évoluer et de se démocratiser depuis.
 Tout *smartphone*, ordinateur moderne possède aujourd'hui un processeur traditionnel et un circuit graphique, que ce soit sous la forme de circuit intégré au processeur, ou sous la forme d'une puce dédiée.
 
 ---
 
-Une particularité dans les opérations nécessaire pour la manipulation et le rendu graphique, c'est la nécessité de pouvoir effectuer une même opération à un ensemble important de données.
+Une particularité dans les opérations nécessaires pour la manipulation et le rendu graphique est la nécessité de pouvoir effectuer une même opération à un ensemble important de données.
 Par exemple, la transformation (rotation, translation, mise à l'échelle, …) d'un objet 3D se traduit par la multiplication des coordonnées de tous les points de cet objet par une même matrice.
 
 De même, la plupart de ces opérations peuvent être faites en parallèle.
 La translation d'un objet peut être calculée en même temps que la rotation d'un autre, sans que les résultats des opérations soient interdépendants.
 
-Bien que des extensions ont été ajoutés à l'architecture x86 au fil du temps pour permettre par exemple les opérations SIMD[^simd], les processeurs traditionnels restent relativement inefficaces quand il s'agit d'effectuer des opérations simples sur de gros ensemble de données.
+Bien que des extensions ont été ajoutés à l'architecture x86 au fil du temps pour permettre par exemple les opérations SIMD[^simd], les processeurs traditionnels restent relativement inefficaces quand il s'agit d'effectuer des opérations simples sur de gros ensembles de données.
 
 [^simd]: *Single Instruction Multiple Data* – permet d'effectuer la même opération mathématique sur plusieurs vecteurs de données.
 
-Les processeurs graphiques ont ainsi été conçus dans cette optique.
+Les processeurs graphiques ont été conçus dans cette optique.
 À la place des quelques cœurs complexes que l'on retrouve dans un CPU se trouvent quelques centaines d'unités d'exécutions dans un GPU.
 
 
-## Détourner l'utilisation des GPUs
+## Détourner l'utilisation des GPU
 
-Au début des années 2000, la plupart des cartes graphiques grand publiques se programmaient via différentes APIs[^api] comme OpenGL (du groupe Khronos) ou DirectX (de Microsoft).
-À cette époque, les GPUs pouvaient essentiellement travailler sur des matrices de couleurs (donc des images bitmap).
-Mais les chercheurs ont rapidement observés que ces données d'entrée –initialement des couleurs– pouvaient représenter virtuellement n'importe quelle donnée numérique[@Sanders:2010:CEI:1891996].
-Les chercheurs ont alors essayé de détourner ces APIs pour utiliser la puissance du circuit graphique pour effectuer des calculs sur des données autre que des resources graphiques.
+Au début des années 2000, la plupart des cartes graphiques grand public se programmaient via différentes API[^api] comme OpenGL (du groupe Khronos) ou DirectX (de Microsoft).
+À cette époque, les GPU pouvaient essentiellement travailler sur des matrices de couleurs (donc des images bitmap).
+Mais les chercheurs ont rapidement observé que ces données d'entrée –initialement des couleurs– pouvaient représenter virtuellement n'importe quelle donnée numérique[@Sanders:2010:CEI:1891996].
+Les chercheurs ont alors essayé de détourner ces API pour utiliser la puissance du circuit graphique pour effectuer des calculs sur des données autre que des resources graphiques.
 
 [^api]: *Application Programming Interface*
 
 En réponse à cette demande, *Nvidia* lance en 2006 leur première carte graphique avec une architecture CUDA.
-Cette architecture introduit un certain nombre de fonctionnalités qui manquait jusqu'alors pour permettre le calcul sur *GPU*.
+Cette architecture introduit un certain nombre de fonctionnalités qui manquaient jusqu'alors pour permettre le calcul sur *GPU*.
 
 *Nvidia* introduit également l'API *CUDA* permettant d'utiliser les centaines d'unités d'arithmétiques et de logiques du GPU directement, sans détourner l'API OpenGL.
 
 
 ## Programmer sur GPU
 
-À haut niveau, CUDA offre un langage de programmation `CUDA C`, qui est un dérivé du C, avec des extensions permettant l'exécution de code massivement parallèle sur GPU.
+À haut niveau, CUDA offre un langage de programmation `CUDA C`, un dérivé du C, avec des extensions permettant l'exécution de code massivement parallèle sur GPU.
 
 Dans un même fichier source, on va retrouver du code exécuté par l'hôte[^host] et le noyau[^kernel] exécuté par le GPU[^device].
 
 ### Exemple de code CUDA
 
-Ci-dessous est un exemple volontairement très simple (et simplifié par rapport au code réellement nécessaire) de code CUDA.
+Voici un exemple volontairement très simple (et simplifié par rapport au code réellement nécessaire) de code CUDA.
 
 ```c
 #define N   1000
@@ -60,8 +60,8 @@ __global__ void add(int *a, int *b, int *c) {
 }
 ```
 
-L'identifiant `__global__` indique que ce code sera exécuté sur GPU, et appelé depuis le code hôte.
-Les "globales" telles que `blockIdx` permettent de savoir sur quel bloc est exécuté le code, et ainsi agir sur les bons éléments des tableaux.
+L'identifiant `__global__` indique que ce code sera exécuté sur GPU et appelé depuis le code hôte.
+Les « globales » telles que `blockIdx` permettent de savoir sur quel bloc est exécuté le code et ainsi agir sur les bons éléments des tableaux.
 
 ------
 
@@ -112,22 +112,22 @@ int main(void) {
 }
 ```
 
-Le noyau est lancé `N` fois, et le résultat dans le tableau `c` est copié du GPU vers l'hôte.
-Le résultat est ensuite affiché, et les tableaux libérés de la mémoire.
+Le noyau est lancé `N` fois et le résultat dans le tableau `c` est copié du GPU vers l'hôte.
+Le résultat est ensuite affiché et les tableaux libérés de la mémoire.
 
 ---
 
-### Terminologie & hiérarchie
+### Terminologie et hiérarchie
 
 ![Hiérarchie des *threads* \cite{ptx-cuda}](img/thread-batching.png)
 
 Un GPU est ainsi composé d'une (ou plusieurs) grille(s).
-Chaque grille est composée de plusieurs “cooperative thread array” (CTA) qui sont composés de plusieurs *blocs* de *threads* d'exécution.
+Chaque grille est composée de plusieurs *cooperative thread array* (CTA) qui sont composés de plusieurs *blocs* de *threads* d'exécution.
 
 Les différents CTA vont pouvoir exécuter plusieurs noyaux indépendamment.
 
-Chaque niveau d'abstraction a accès à différents niveaux de mémoire partagée, et impose un certain niveau de synchronisation entre les threads.
-De manière générale, plus on agit profondément dans la hiérarchie, plus l'exécution doit être synchronisée entre les thread (au niveau des branchements, par exemple) et plus l'accès à un certain niveau de mémoire partagée est rapide.
+Chaque niveau d'abstraction a accès à différents niveaux de mémoire partagée et impose un certain niveau de synchronisation entre les threads.
+De manière générale, plus on agit profondément dans la hiérarchie, plus l'exécution doit être synchronisée entre les threads (au niveau des branchements, par exemple) et plus l'accès à un certain niveau de mémoire partagée est rapide.
 
 ![Hiérarchie de la mémoire au sein du GPU](img/memory-hierarchy.png)
 
@@ -144,9 +144,10 @@ Cet outil concrètement va:
    - Remplacer les lancements de noyaux par des appels à la bibliothèque `cudart`[^cudart]
    - Compiler en un exécutable, en liant `cudart`
 
-Il est également possible de demander à `nvcc` de seulement générer le code *PTX*, et ce code sera compilé à l'exécution par `cudart`.
+Il est également possible de demander à `nvcc` de seulement générer le code *PTX*.
+Ce code sera compilé à l'exécution par `cudart`.
 
-*Parallel Thread Execution* (PTX) est à la fois le nom de la *machine virtuelle* dans lequel est exécuté l'application côté GPU, et le jeu d'instruction de CUDA.
+*Parallel Thread Execution* (PTX) est à la fois le nom de la *machine virtuelle* dans lequel est exécutée l'application côté GPU et le jeu d'instruction de CUDA.
 
 Les programmes PTX ressemblent à des programmes en assembleur, mais avec un jeu d'instruction spécifique à CUDA.
 Ce jeu d'instruction est décrit dans un document fournit par Nvidia\cite{ptx-cuda}.
@@ -161,27 +162,27 @@ Ce jeu d'instruction est décrit dans un document fournit par Nvidia\cite{ptx-cu
 
 ![Architecture Kepler\cite{nvidia-kepler-whitepaper}](./img/kepler.pdf)
 
-Outre un cache L2 et quelques contrôleurs partagés, un GPU moderne chez Nvidia (ici, l'architecture Kepler, introduite en 2012 par Nvidia) est composé de plusieurs “Streaming Multiprocessor” (SMX).
+Outre un cache L2 et quelques contrôleurs partagés, un GPU moderne chez Nvidia (ici, l'architecture Kepler, introduite en 2012 par Nvidia) est composé de plusieurs *Streaming Multiprocessor* (SMX).
 Ces *SMX* correspondent au niveau d'abstraction des *CTA* mentionné plus haut.
 
 Chaque *SMX* comporte une flopée d'unités d'exécutions simple et double précision.
 
 ![Contenu d'un SMX sous Kepler\cite{nvidia-kepler-whitepaper}](./img/smx.pdf)
 
-À chaque cycle, les instructions de même type en attente dans le cache d'instruction sont groupées ensemble dans des *“warps”* par les *warps scheduler* pour être ensuite dispatchés aux différentes unités d'exécution.
+À chaque cycle, les instructions de même type en attente dans le cache d'instruction sont groupées ensemble dans des *warps* par les *warps scheduler* pour être ensuite répartis entre les différentes unités d'exécution.
 
-Ce fonctionnement est très différent de l'habituelle pipeline d'une architecture de processeur traditionnel.
-La puissance de ces processeur vient de leur capacité à exécuter une même instruction sur des vecteurs de données.
+Ce fonctionnement est très différent de l'habituelle *pipeline* d'une architecture de processeur traditionnel.
+La puissance de ces processeurs vient de leur capacité à exécuter une même instruction sur des vecteurs de données.
 Ainsi, l'addition de deux vecteurs avec une vingtaine d'éléments se fera probablement en 2 ou 3 instructions, qui prendront peut-être une dizaine de pulsations d'horloge.
 À l'inverse, un processeur traditionnel, même avec un jeu d'instruction avec SIMD devra probablement faire une dizaine d'opérations pour effectuer ce calcul.
 
-Ainsi, même si individuellement, l'exécution d'une instruction sera probablement plus rapide sur un processeur traditionnel que sur GPU, les GPUs se montrent bien plus performant lorsqu'il s'agit d'effectuer des opérations parallèlement.
+Ainsi, même si individuellement, l'exécution d'une instruction sera probablement plus rapide sur un processeur traditionnel que sur GPU, les GPU se montrent bien plus performants lorsqu'il s'agit d'effectuer des opérations parallèlement.
 
 ## Applications
 
 Les applications du calcul sur GPU sont nombreuses.
-Outre les applications gourmandes graphiquement, cette capacité à effectuer des calculs parallèles s'applique bien à des domaines tels que la simulation, manipulations de BigData, ou encore du traitement de signal.
+Outre les applications gourmandes graphiquement, cette capacité à effectuer des calculs parallèles s'applique bien à des domaines tels que la simulation, manipulations de *BigData*, ou encore du traitement de signal.
 
-Un des domaines qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
-Le domaine de l'intelligence artificielle, *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
-On peut aujourd'hui faire fonctionner des algorithme de deep learning avec du matériel *grand publique* à quelques centaines d'euros.
+Un domaine qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
+Le domaine de l'intelligence artificielle, du *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
+On peut aujourd'hui faire fonctionner des algorithmes de deep learning avec du matériel *grand public* à quelques centaines d'euros.
