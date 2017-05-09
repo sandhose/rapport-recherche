@@ -165,9 +165,7 @@ Ce jeu d'instruction est décrit dans un document fournit par Nvidia\cite{ptx-cu
 Outre un cache L2 et quelques contrôleurs partagés, un GPU moderne chez Nvidia (ici, l'architecture Kepler, introduite en 2012 par Nvidia) est composé de plusieurs *Streaming Multiprocessor* (SMX).
 Ces *SMX* correspondent au niveau d'abstraction des *CTA* mentionné plus haut.
 
-Chaque *SMX* comporte une flopée d'unités d'exécutions simple et double précision.
-
-![Contenu d'un SMX sous Kepler\cite{nvidia-kepler-whitepaper}](./img/smx.pdf)
+Chaque *SMX* comporte une flopée d'unités d'exécutions simple et double précision. (cf. figure \ref{smx})
 
 À chaque cycle, les instructions de même type en attente dans le cache d'instruction sont groupées ensemble dans des *warps* par les *warps scheduler* pour être ensuite répartis entre les différentes unités d'exécution.
 
@@ -202,5 +200,7 @@ Outre les applications gourmandes graphiquement, cette capacité à effectuer de
 Un domaine qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
 Le domaine de l'intelligence artificielle, du *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
 On peut aujourd'hui faire fonctionner des algorithmes de deep learning avec du matériel *grand public* à quelques centaines d'euros.
+
+![Contenu d'un SMX sous Kepler\cite{nvidia-kepler-whitepaper}\label{smx}](./img/smx.pdf)
 
 \newpage
