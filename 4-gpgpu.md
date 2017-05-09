@@ -202,3 +202,5 @@ Outre les applications gourmandes graphiquement, cette capacité à effectuer de
 Un domaine qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
 Le domaine de l'intelligence artificielle, du *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
 On peut aujourd'hui faire fonctionner des algorithmes de deep learning avec du matériel *grand public* à quelques centaines d'euros.
+
+\newpage

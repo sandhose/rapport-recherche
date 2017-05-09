@@ -52,3 +52,5 @@ Une autre utilisation commune est le stockage de clé de signature, pour permett
 Ces modules ont été standardisés par le *Trusted Computing Group* en 2006, et la plupart des cartes mères grand public possèdent aujourd'hui un emplacement pour un TPM.
 
 Les TPM sont donc des accélérateurs qui servent à la fois à des fins de performance, mais également pour des raisons de sécurité.
+
+\newpage

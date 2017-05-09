@@ -84,3 +84,5 @@ end test;
 En VHDL, les entrées/sorties sont les *ports* de l'entité. Chaque composant interne est un *processus* de l'architecture et ceux-ci s'exécutent en parallèle.
 
 La transformation d'un langage de description en un schéma en porte logique, qui permet la description du comportement et de la structure d'un circuit, est possible grâce à la synthèse logique.
+
+\newpage
