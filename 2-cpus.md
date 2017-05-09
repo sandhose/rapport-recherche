@@ -49,6 +49,6 @@ Le but des TPM est d'à la fois décharger le processeurs de calculs utiles en c
 Ces modules vont permettre par exemple de stocker les clés de chiffrement d'un disque dur (avec par exemple `LUKS` sur Linux) protégée par un mot de passe, tout en offrant une protection matérielle contre les attaques par dictionnaire.
 Une autre utilisation commune est le stockage de clé de signature, pour permettre la signature électronique de documents sécurisée.
 
-Ces modules ont été standardisés par le *Trusted Computing Group* en 2006, et la plupart des cartes mères grand public proposent aujourd'hui un emplacement pour un TPM.
+Ces modules ont été standardisés par le *Trusted Computing Group* en 2006, et la plupart des cartes mères grand public possèdent aujourd'hui un emplacement pour un TPM.
 
 Les TPM sont donc des accélérateurs qui servent à la fois à des fins de performance, mais également pour des raisons de sécurité.

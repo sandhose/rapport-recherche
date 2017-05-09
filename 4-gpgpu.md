@@ -178,10 +178,26 @@ Ainsi, l'addition de deux vecteurs avec une vingtaine d'éléments se fera proba
 
 Ainsi, même si individuellement, l'exécution d'une instruction sera probablement plus rapide sur un processeur traditionnel que sur GPU, les GPU se montrent bien plus performants lorsqu'il s'agit d'effectuer des opérations parallèlement.
 
+
+## *OpenCL*, une alternative ouverte à *CUDA*
+
+En réponse à *CUDA*, solution propriétaire contrôlée par Nvidia, le groupe Khronos – qui est l'auteur de standards comme OpenGL ou Vulkan – lance en 2009 un standard ouvert, OpenCL.
+
+Cette API ouverte – très fortement inspirée de CUDA dans son fonctionnement – permet d'écrire du code qui pourra être exécuté sur GPU, mais aussi sur CPU, FPGA, ou d'autres accélérateurs matériels.
+L'API a été conçue pour ne pas être liée au matériel.
+
+AMD, Nvidia, Intel ont (parmi d'autres dizaines de constructeurs\cite{opencl-conformance}) implémenté cette API pour leur différents processeurs et accélérateurs matériels.
+OpenCL tourne aujourd'hui sur plusieurs architectures CPU (tant que le jeu d'instruction a les extensions permettant les opérations `SIMD`), `GPU`s, `FPGA`s et différents processeurs de signaux numériques\cite{wikipedia-opencl}.
+
+L'API OpenCL ressemble conceptuellement à CUDA, avec une terminologie un peu différente.
+On ne parle pas de « *thread* » ni de « bloc » mais de « travail » (*work-item*) et de « group de travaux » (*work-group*)\cite{amd-porting-opencl}.
+Mais le principe reste le même: OpenCL propose un langage similaire au C, permettant d'écrire des noyaux à exécuter sur le « *device* » OpenCL.
+
+
 ## Applications
 
 Les applications du calcul sur GPU sont nombreuses.
-Outre les applications gourmandes graphiquement, cette capacité à effectuer des calculs parallèles s'applique bien à des domaines tels que la simulation, manipulations de *BigData*, ou encore du traitement de signal.
+Outre les applications gourmandes graphiquement, cette capacité à effectuer des calculs parallèles s'applique bien à des domaines tels que la simulation, manipulations de *BigData*, ou encore du traitement de signal (transformés de Fourier).
 
 Un domaine qui a particulièrement intéressé la recherche et les industriels est celui des réseaux de neurones.
 Le domaine de l'intelligence artificielle, du *deep learning*, des réseaux de neurones devient de plus en plus accessible aux développeurs indépendants, puisque de nombreuses plateformes de *Machine Learning* basées sur CUDA ou OpenCL ont vu le jour ces dernières années.
