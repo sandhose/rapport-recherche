@@ -41,9 +41,9 @@ Les circuits intégrés cités précédemment cités sont programmés à l'aide 
 
   - de décrire le fonctionnement d'un circuit
   - de décrire la structure d'un circuit
-  - de vérfier la fonctionnalité d'un circuit, par simulation
+  - de vérifier la fonctionnalité d'un circuit, par simulation
 
-Les principaux langages de description sont SystemC, et Verilog et VHDL. Ce dernier, créé en 1981 par le Département de la Défense des Etats-Unis, peut ainsi décrire le comportement d'une puce, qui sera interprété par des outils de synthèse logique. Un exemple de programme en VHDL ressemblerait à ceci.
+Les principaux langages de description sont SystemC, Verilog et VHDL. Ce dernier, créé en 1981 par le Département de la Défense des États-Unis, peut décrire le comportement d'une puce, qui sera interprété par des outils de synthèse logique. Un exemple de programme en VHDL ressemblerait à ceci :
 
 ```vhdl
 
