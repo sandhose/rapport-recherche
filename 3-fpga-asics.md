@@ -23,9 +23,9 @@ C'est pour répondre à des besoins auxquels les ASIC ne sont pas adaptés que l
 
 ## FPGA[^fpga]
 
-Un FPGA (soit matrice de portes logiques programmable) est un type de circuit intégré apparu au milieu des années 80, et dont la particularité est qu'il peut être utilisé pour plusieurs types d'application.
+Un FPGA (soit matrice de portes logiques programmable) est un type de circuit intégré apparu au milieu des années 80 et dont la particularité est qu'il peut être utilisé pour plusieurs types d'application.
 
-À l'instar des ASIC, la programmation des FPGA est faite avec un HDL, qui permet de décrire le comportement du circuit. Cependant, les FPGA sont conçus de manière à pouvoir être reprogrammés. On peut en effet "flasher" ceux-ci afin d'en modifier le comportement, et ainsi ceux-ci ne sont pas limités à une utilisation.
+À l'instar des ASIC, la programmation des FPGA est faite avec un HDL, qui permet de décrire le comportement du circuit. Cependant, les FPGA sont conçus de manière à pouvoir être reprogrammés. On peut en effet "flasher" ceux-ci afin d'en modifier le comportement et ainsi ceux-ci ne sont pas limités à une utilisation.
 
 La modification possible de l'application pour un FPGA en fatt de solides concurrents aux ASIC, surtout dans les domaines où ceux-là n'excellent pas. En particulier, le coût de design d'un FPGA est moindre par rapport à celui d'un ASIC et l'on peut les utiliser pour plusieurs types d'applications. Cela en fait une bonne option pour, par exemple, l'expérimentation et les prototypes, ou bien la fabrication de produits lorsqu'il ne s'agit pas d'en fabriquer un grand nombre et qu'il faut y avoir accès rapidement.
 
@@ -81,6 +81,6 @@ process (reset, clk)
 end test;
 ```
 
-En VHDL, les entrées/sorties sont les *ports* de l'entité. Chaque composant interne est un *processus* de l'architecture, et ceux-ci s'exécutent en parallèle.
+En VHDL, les entrées/sorties sont les *ports* de l'entité. Chaque composant interne est un *processus* de l'architecture et ceux-ci s'exécutent en parallèle.
 
 La transformation d'un langage de description en un schéma en porte logique, qui permet la description du comportement et de la structure d'un circuit, est possible grâce à la synthèse logique.
